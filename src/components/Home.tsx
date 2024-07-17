@@ -1,22 +1,30 @@
 import React from 'react';
-import CategoryCard from '../components/CategoryCard';
-import Carousel from '../components/Carousel';
+import CategoryCard from './CategoryCard';
+import Carousel from './Carousel';
+import image from '../assets/images/categoria-pulseiras.jpg';
 
 const categories = [
-    'Anéis', 'Brincos', 'Colares', 'Conjuntos', 'Joias Masculinas',
-    'Joias Infantis', 'Pingentes e Berloques', 'Pulseiras', 'Tornozeleiras',
-    'Joias Personalizadas'
+    { title: 'Anéis', imageUrl: image },
+    { title: 'Brincos', imageUrl: image },
+    { title: 'Colares', imageUrl: image },
+    { title: 'Conjuntos', imageUrl: image },
+    { title: 'Joias Masculinas', imageUrl: image },
+    { title: 'Joias Infantis', imageUrl: image },
+    { title: 'Pingentes e Berloques', imageUrl: image },
+    { title: 'Pulseiras', imageUrl: image },
+    { title: 'Tornozeleiras', imageUrl: image },
+    { title: 'Joias Personalizadas', imageUrl: image },
 ];
 
 const Home: React.FC = () => {
     return (
-        <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 p-4">
-                {categories.map((category) => (
-                    <CategoryCard key={category} category={category} />
+        <div className="container mx-auto p-4">
+            <div className="flex flex-wrap justify-center">
+                {categories.map((category, index) => (
+                    <CategoryCard key={index} title={category.title} imageUrl={category.imageUrl} />
                 ))}
             </div>
-            <h2 className="text-2xl font-bold mt-8 mb-4 text-center">Adicionados Recentemente</h2>
+            <h2 className="text-2xl font-bold mb-4 mt-8 text-center">Adicionados Recentemente</h2>
             <Carousel />
         </div>
     );
